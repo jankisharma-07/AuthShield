@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/565/565547.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/static/style.css">
+<title>AuthShield</title>
+</head>
+<body>
+<h1>🔐AuthShield</h1>
+<center><h2>Login History</h2></center>
+<table>
+<tr><th>User</th><th>Status</th><th>IP</th><th>Time</th></tr>
+{% for log in logs %}
+<tr>
+<td>{{ log[1] }}</td>
+<td>{{ log[2] }}</td>
+<td>{{ log[3] }}</td>
+<td>{{ log[4] }}</td>
+</tr>
+{% endfor %}
+</table>
+</body>
+</html>

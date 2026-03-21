@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/565/565547.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>AuthShield Signup</title>
+</head>
+<body>
+<h1>🔐AuthShield</h1>
+<div class="box">
+    <center><h2>Sign up</h2></center>
+
+    <form method="POST" id="signupForm">
+        <input name="username" placeholder="Username" required value="{{ username }}">
+        <input type="password" id="password" name="password" placeholder="Password" required>
+
+        <p style="color:#357ABD;">{{ message }}</p>
+
+        {% if errors %}
+        <ul>
+            {% for e in errors %}
+            <li style="color:#357ABD;">{{ e }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <input type="text" id="suggestedPassword" placeholder="Suggested password " readonly>
+        <button type="button" onclick="generateSuggestion()">Suggest Password</button>
+        <button type="submit">Signup</button>
+    </form>
+
+    <p>Already have account? <a href="/">Go to Login</a></p>
+</div>
+
+<script>
+function generateSuggestion() {
+    fetch('/suggest_password')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('suggestedPassword').value = data.password;
+    });
+}
+
+document.getElementById('suggestedPassword').addEventListener('click', function(){
+    document.getElementById('password').value = this.value;
+});
+</script>
+</body>
+</html>
