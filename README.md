@@ -14,6 +14,10 @@ AuthShield is a Flask-based authentication system that provides secure login and
 - Brute-force attack detection
 - Account lock mechanism
 - User-specific login history dashboard
+## Screenshots
+- Login Page
+- Signup Page
+- Dashboard
   
 
 ## Installation
@@ -27,13 +31,5 @@ venv\Scripts\activate    # Windows
 pip install -r requirements.txt
 python app.py
 
-## Screenshots
 
-### Login Page
-![Login](screenshots/login.png)
 
-### Signup Page
-![Signup](screenshots/signup.png)
-
-### Dashboard
-![Dashboard](screenshots/dashboard.png)
